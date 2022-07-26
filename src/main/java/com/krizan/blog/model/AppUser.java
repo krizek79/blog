@@ -12,12 +12,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Collections;
 
-@Entity
+@Entity(name = "app_users")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class User implements UserDetails {
+public class AppUser implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -5,7 +5,7 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "posts")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,7 +17,7 @@ public class Post {
     private Long id;
     @ManyToOne
     @NonNull
-    private User user;
+    private AppUser appUser;
     @NonNull
     private String title;
     private String body;

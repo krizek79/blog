@@ -1,28 +1,15 @@
 package com.krizan.blog.repository;
 
-import com.krizan.blog.model.User;
+import com.krizan.blog.model.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 @Repository
-@Transactional
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<AppUser, Long> {
 
-    Optional<User> findByEmail(String email);
-    Optional<User> findByUsername(String userName);
-    Optional<User> findById(Long id);
-
-    @Transactional
-    @Modifying
-    @Query(
-            "UPDATE User u " +
-            "SET u.enabled = TRUE " +
-            "WHERE u.email = ?1"
-    )
-    void enableUser(String email);
+    Optional<AppUser> findByEmail(String email);
+    Optional<AppUser> findByUsername(String userName);
+    Optional<AppUser> findById(Long id);
 }

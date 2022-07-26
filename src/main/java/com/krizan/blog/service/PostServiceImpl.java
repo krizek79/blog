@@ -3,8 +3,8 @@ package com.krizan.blog.service;
 import com.krizan.blog.dto.PostCreationRequest;
 import com.krizan.blog.dto.PostUpdateRequest;
 import com.krizan.blog.exception.NotFoundException;
+import com.krizan.blog.model.AppUser;
 import com.krizan.blog.model.Post;
-import com.krizan.blog.model.User;
 import com.krizan.blog.repository.PostRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,9 +21,9 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Post createPost(PostCreationRequest request) {
-        User user = userService.getUserById(request.userId());
+        AppUser appUser = userService.getUserById(request.userId());
         Post post = Post.builder()
-                .user(user)
+                .appUser(appUser)
                 .title(request.title())
                 .body(request.body())
                 .createdAt(LocalDateTime.now())
@@ -57,6 +57,6 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<Post> getAllPostsByUserId(Long id) {
-        return postRepository.findAllByUserId(id);
+        return postRepository.findAllByAppUser_Id(id);
     }
 }

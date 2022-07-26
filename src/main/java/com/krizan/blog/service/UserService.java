@@ -1,11 +1,14 @@
 package com.krizan.blog.service;
 
-import com.krizan.blog.model.User;
+import com.krizan.blog.model.AppUser;
 import org.springframework.security.core.userdetails.UserDetailsService;
+
+import java.util.List;
 
 public interface UserService extends UserDetailsService {
 
-    String signUpUser(User user);
-    void enableUser(String email);
-    User getUserById(Long id);
+    String signUpUser(AppUser appUser);
+    void enableUser(Long id);
+    AppUser getUserById(Long id);
+    List<AppUser> getAllUsers();
 }
