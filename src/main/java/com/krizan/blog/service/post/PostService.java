@@ -1,4 +1,4 @@
-package com.krizan.blog.service;
+package com.krizan.blog.service.post;
 
 import com.krizan.blog.dto.PostCreationRequest;
 import com.krizan.blog.dto.PostUpdateRequest;

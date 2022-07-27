@@ -1,6 +1,6 @@
 package com.krizan.blog.dto;
 
-public record UserRegistrationRequest(
+public record AppUserRegistrationRequest(
     String username,
     String email,
     String password,

@@ -1,4 +1,4 @@
-package com.krizan.blog.service;
+package com.krizan.blog.service.user;
 
 import com.krizan.blog.model.AppUser;
 import org.springframework.security.core.userdetails.UserDetailsService;

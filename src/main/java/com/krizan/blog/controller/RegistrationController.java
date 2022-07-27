@@ -1,7 +1,7 @@
 package com.krizan.blog.controller;
 
-import com.krizan.blog.dto.UserRegistrationRequest;
-import com.krizan.blog.service.RegistrationService;
+import com.krizan.blog.dto.AppUserRegistrationRequest;
+import com.krizan.blog.service.registration.RegistrationService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 public record RegistrationController(RegistrationService registrationService) {
 
     @PostMapping
-    public String register(@RequestBody UserRegistrationRequest request) {
+    public String register(@RequestBody AppUserRegistrationRequest request) {
         return registrationService.registerUser(request);
     }
 

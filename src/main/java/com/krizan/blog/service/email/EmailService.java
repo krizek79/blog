@@ -1,4 +1,4 @@
-package com.krizan.blog.service;
+package com.krizan.blog.service.email;
 
 public interface EmailService {
 

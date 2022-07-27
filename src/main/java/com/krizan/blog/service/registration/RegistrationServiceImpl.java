@@ -1,10 +1,13 @@
-package com.krizan.blog.service;
+package com.krizan.blog.service.registration;
 
-import com.krizan.blog.dto.UserRegistrationRequest;
+import com.krizan.blog.dto.AppUserRegistrationRequest;
 import com.krizan.blog.exception.IllegalOperationException;
 import com.krizan.blog.model.AppUser;
 import com.krizan.blog.model.ConfirmationToken;
 import com.krizan.blog.model.Role;
+import com.krizan.blog.service.email.EmailService;
+import com.krizan.blog.service.user.UserService;
+import com.krizan.blog.service.confirmationToken.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -21,7 +24,7 @@ public class RegistrationServiceImpl implements RegistrationService {
     private final EmailService emailService;
 
     @Override
-    public String registerUser(UserRegistrationRequest request) {
+    public String registerUser(AppUserRegistrationRequest request) {
         Boolean isEmailValid = emailService.validateEmail(request.email());
         if (Boolean.FALSE.equals(isEmailValid))
             throw new IllegalOperationException("Email is not valid.");

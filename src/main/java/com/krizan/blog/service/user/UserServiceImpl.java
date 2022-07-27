@@ -1,10 +1,11 @@
-package com.krizan.blog.service;
+package com.krizan.blog.service.user;
 
 import com.krizan.blog.exception.IllegalOperationException;
 import com.krizan.blog.exception.NotFoundException;
 import com.krizan.blog.model.ConfirmationToken;
 import com.krizan.blog.model.AppUser;
 import com.krizan.blog.repository.UserRepository;
+import com.krizan.blog.service.confirmationToken.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -41,6 +42,7 @@ public class UserServiceImpl implements UserService {
     public void enableUser(Long id) {
         AppUser appUser = getUserById(id);
         appUser.setEnabled(true);
+        appUser.setLocked(false);
         userRepository.save(appUser);
     }
 

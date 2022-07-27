@@ -1,6 +1,6 @@
 package com.krizan.blog.configuration;
 
-import com.krizan.blog.service.UserService;
+import com.krizan.blog.service.user.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,11 +22,13 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authenticationProvider(daoAuthenticationProvider())
+                .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/login", "/registration/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin();
+
         return http.build();
     }
 

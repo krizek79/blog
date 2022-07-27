@@ -1,4 +1,4 @@
-package com.krizan.blog.service;
+package com.krizan.blog.service.post;
 
 import com.krizan.blog.dto.PostCreationRequest;
 import com.krizan.blog.dto.PostUpdateRequest;
@@ -6,6 +6,7 @@ import com.krizan.blog.exception.NotFoundException;
 import com.krizan.blog.model.AppUser;
 import com.krizan.blog.model.Post;
 import com.krizan.blog.repository.PostRepository;
+import com.krizan.blog.service.user.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

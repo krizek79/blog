@@ -27,7 +27,7 @@ public class AppUser implements UserDetails {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
-    private Boolean locked = false;
+    private Boolean locked = true;
     private Boolean enabled = false;
 
     @Override

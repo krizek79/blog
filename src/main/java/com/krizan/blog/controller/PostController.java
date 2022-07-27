@@ -3,7 +3,7 @@ package com.krizan.blog.controller;
 import com.krizan.blog.dto.PostCreationRequest;
 import com.krizan.blog.dto.PostResponse;
 import com.krizan.blog.dto.PostUpdateRequest;
-import com.krizan.blog.service.PostService;
+import com.krizan.blog.service.post.PostService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

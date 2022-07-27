@@ -1,4 +1,4 @@
-package com.krizan.blog.service;
+package com.krizan.blog.service.confirmationToken;
 
 import com.krizan.blog.exception.NotFoundException;
 import com.krizan.blog.model.ConfirmationToken;
