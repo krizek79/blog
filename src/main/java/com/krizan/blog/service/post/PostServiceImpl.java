@@ -6,7 +6,7 @@ import com.krizan.blog.exception.NotFoundException;
 import com.krizan.blog.model.AppUser;
 import com.krizan.blog.model.Post;
 import com.krizan.blog.repository.PostRepository;
-import com.krizan.blog.service.user.UserService;
+import com.krizan.blog.service.auth.AuthService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +18,11 @@ import java.util.List;
 public class PostServiceImpl implements PostService {
 
     private final PostRepository postRepository;
-    private final UserService userService;
+    private final AuthService authService;
 
     @Override
     public Post createPost(PostCreationRequest request) {
-        AppUser appUser = userService.getUserById(request.userId());
+        AppUser appUser = authService.getCurrentUser();
         Post post = Post.builder()
                 .appUser(appUser)
                 .title(request.title())
